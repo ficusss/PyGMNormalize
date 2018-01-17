@@ -3,6 +3,7 @@ from sys import stderr
 from scipy.stats import rankdata
 from utils import percentile
 
+#===============================================================================
 
 def total_count_normalization(matrix):
     """
@@ -20,6 +21,7 @@ def total_count_normalization(matrix):
     """
     return matrix / matrix.sum(axis=0)
 
+#===============================================================================
 
 def percentile_normalization(matrix, p):
     """
@@ -39,6 +41,7 @@ def percentile_normalization(matrix, p):
     """
     return matrix / percentile(matrix, p)
 
+#===============================================================================
 
 def quartile_normalization(matrix, q):
     """
@@ -63,6 +66,7 @@ def quartile_normalization(matrix, q):
     assert q in d, 'Unexpected quartile for normalization: "' + str(q) + '"'
     return percentile_normalization(matrix, d[q])
 
+#===============================================================================
 
 def tmm_normalization(matr, index_ref=None, trim_fold_change=0.3, trim_abs_expr=0.05):
     """
@@ -137,3 +141,5 @@ def tmm_normalization(matr, index_ref=None, trim_fold_change=0.3, trim_abs_expr=
     # calculation tmm_factor and normalization of input data
     tmm_factor = 2 ** np.array([log2_tmm(i) for i in range(matrix.shape[1])])
     return matr / tmm_factor
+
+#===============================================================================
