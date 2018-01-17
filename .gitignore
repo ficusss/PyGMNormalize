@@ -1,4 +1,4 @@
 #Ignore data.
-data/
+test_data/srr1784310_subset.csv
 #Ignore temporary files
 .ipynb_checkpoints
