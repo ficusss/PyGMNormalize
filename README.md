@@ -16,9 +16,9 @@ Description of implemented methods [here](https://www.hindawi.com/journals/bmri/
 
 ## Installation instructions
 To install run the following commands:
-  1. git clone ...
-  2. cd ...
-  3. python setup.py install
+  1. $ git clone https://github.com/ficusss/PyGMNormalize.git
+  2. $ cd ...
+  3. $ python setup.py install
 
 ## License
 This repository uses the [MIT License](https://github.com/ficusss/PyGMNormalize/blob/master/LICENSE).
