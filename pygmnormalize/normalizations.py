@@ -68,7 +68,7 @@ def quartile_normalization(matrix, q):
 
 #===============================================================================
 
-def tmm_normalization(matr, index_ref=None, trim_fold_change=0.3, trim_abs_expr=0.05):
+def tmm_normalization(matrix, index_ref=None, trim_fold_change=0.3, trim_abs_expr=0.05):
     """
     Trimmed mean of M-values normalization
     
@@ -88,14 +88,14 @@ def tmm_normalization(matr, index_ref=None, trim_fold_change=0.3, trim_abs_expr=
     array_like
         Normalized matrix.
     """
-    matrix = np.array(matr)                           # better speed of calculating
+    matrix_np = np.array(matrix)                      # better speed of calculating
     np.seterr(divide='ignore', invalid='ignore')      # for divide on zeros in log2
     
     # Calculation log2(tmm_factor)
     def log2_tmm(index_vec):
         # select the necessary vectors
-        curr_vec = matrix[:, index_vec]
-        ref_vec = matrix[:, index_ref]
+        curr_vec = matrix_np[:, index_vec]
+        ref_vec = matrix_np[:, index_ref]
         
         # total number molecules in cells
         total_curr_vec = np.sum(curr_vec)
@@ -127,19 +127,19 @@ def tmm_normalization(matr, index_ref=None, trim_fold_change=0.3, trim_abs_expr=
         return np.sum(w_vec * m_vec) / w_sum
         
     # find index of reference column
-    f75 = percentile(matrix, 75)
+    f75 = percentile(matrix_np, 75)
     if index_ref is None:
         index_ref = np.argmin(abs(f75 - np.mean(f75)))
-    elif isinstance(numeric_matrix, pd.DataFrame) and isinstance(index_ref, int):
-        index_ref = matr.columns.values[index_ref]    
+    elif isinstance(matrix, pd.DataFrame) and ~isinstance(index_ref, int):
+        index_ref = np.where(matrix.columns.values == (index_ref))[0][0]
     
     # find matrix A and M described expression levels of genes
-    matr_norm = matrix / np.sum(matrix, axis=0)
+    matr_norm = matrix_np / np.sum(matrix_np, axis=0)
     matr_a = np.log2(matr_norm * matr_norm[:, index_ref].reshape(matr_norm.shape[0], 1)) / 2
     matr_m = np.log2(matr_norm / matr_norm[:, index_ref].reshape(matr_norm.shape[0], 1))
     
     # calculation tmm_factor and normalization of input data
-    tmm_factor = 2 ** np.array([log2_tmm(i) for i in range(matrix.shape[1])])
-    return matr / tmm_factor
+    tmm_factor = 2 ** np.array([log2_tmm(i) for i in range(matrix_np.shape[1])])
+    return matrix / tmm_factor
 
 #===============================================================================
