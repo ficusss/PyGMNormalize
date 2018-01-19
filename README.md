@@ -1,7 +1,7 @@
 # PyGMNormalize
 Genes expression matrix normalization.
 
-## Discovered package
+## Description package
 This package incule next metods:
   - Total count normalization;
   - Percentile normalization;
