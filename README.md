@@ -19,3 +19,6 @@ To install run the following commands:
   1. git clone ...
   2. cd ...
   3. python setup.py install
+
+## License
+This repository uses the [MIT License](https://github.com/ficusss/PyGMNormalize/blob/master/LICENSE).
