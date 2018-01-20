@@ -1,0 +1,41 @@
+Metadata-Version: 1.1
+Name: pygmnormalize
+Version: 0.0.0
+Summary: Package with methods for normalization matrices of genes expression.
+Home-page: https://github.com/ficusss/PyGMNormalize
+Author: Grigory Feoktistov
+Author-email: ficusss.developer@gmail.com
+License: MIT
+Description: # PyGMNormalize
+        Genes expression matrix normalization.
+        
+        ## Discovered package
+        This package incule next metods:
+          - Total count normalization;
+          - Percentile normalization;
+          - Quartile normalization;
+          - Trimmed mean of M-values normalization.
+        
+        ## Demonstration
+        Demonstration work methods [here](https://github.com/ficusss/PyGMNormalize/blob/master/notebooks/demonstration.ipynb).
+        
+        ## Links
+        Description of implemented methods [here](https://www.hindawi.com/journals/bmri/2015/621690/).
+        
+        ## Installation instructions
+        To install run the following commands:
+          1. git clone ...
+          2. cd ...
+          3. python setup.py install
+        
+        ## License
+        This repository uses the [MIT License](https://github.com/ficusss/PyGMNormalize/blob/master/LICENSE).
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Framework :: Django
