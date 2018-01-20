@@ -16,4 +16,5 @@ def percentile(matrix, p):
     float
         Ñalculated percentile.
     """
+
     return np.percentile(matrix[np.any(matrix > 0, axis=1)], p, axis=0)
