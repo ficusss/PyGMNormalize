@@ -1,24 +1,21 @@
 # PyGMNormalize
-Genes expression matrix normalization.
+Normalization of gene expression matrices.
 
-## Description package
-This package incule next metods:
-  - Total count normalization;
-  - Percentile normalization;
-  - Quartile normalization;
-  - Trimmed mean of M-values normalization.
+## Installation
+To install, run the following commands:
+1. $ git clone https://github.com/ficusss/PyGMNormalize.git
+2. $ cd ...
+3. $ python setup.py install
+
+## Description
+This package implements the following metods:
+- Total count normalization;
+- Percentile normalization;
+- Quartile normalization;
+- Trimmed mean of M-values normalization.
 
 ## Demonstration
-Demonstration work methods [here](https://github.com/ficusss/PyGMNormalize/blob/master/notebooks/demonstration.ipynb).
+Demonstration of the methods is available [here](https://github.com/ficusss/PyGMNormalize/blob/master/notebooks/demonstration.ipynb).
 
 ## Links
-Description of implemented methods [here](https://www.hindawi.com/journals/bmri/2015/621690/).
-
-## Installation instructions
-To install run the following commands:
-  1. $ git clone https://github.com/ficusss/PyGMNormalize.git
-  2. $ cd ...
-  3. $ python setup.py install
-
-## License
-This repository uses the [MIT License](https://github.com/ficusss/PyGMNormalize/blob/master/LICENSE).
+Description of implemented methods is available [here](https://www.hindawi.com/journals/bmri/2015/621690/).
