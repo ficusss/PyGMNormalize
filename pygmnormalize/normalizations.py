@@ -113,7 +113,7 @@ def tmm_normalization(matrix, index_ref=None, trim_fold_change=0.3, trim_abs_exp
         bool_ref = ref_vec > 0
         bool_result = bool_curr_vec & bool_ref & bool_a & bool_m
         
-        # ñalculation of required values
+        # calculation of required values
         w_vec = 1 / ((total_curr_vec - curr_vec[bool_result]) / (total_curr_vec * curr_vec[bool_result]) + 
                      (total_ref_vec - ref_vec[bool_result]) / (total_ref_vec * ref_vec[bool_result]))
         m_vec = np.log2(curr_vec[bool_result] / total_curr_vec) - np.log2(ref_vec[bool_result] / total_ref_vec)
