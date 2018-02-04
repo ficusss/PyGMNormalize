@@ -21,11 +21,10 @@ setup(
     license="MIT",
     url=URL,
     packages=[PACKAGE],
-    # install_requires=[
-        # 'numpy',
-	# 'sys',
-	# 'scipy',
-    # ],
+    install_requires=[
+        'numpy',
+        'scipy',
+    ],
     classifiers=[
         "Development Status :: 3 - Alpha",
         "Intended Audience :: Science/Research",

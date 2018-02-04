@@ -1,7 +1,7 @@
 import numpy as np
 from sys import stderr
 from scipy.stats import rankdata
-from utils import percentile
+from pygmnormalize.utils import percentile
 
 #===============================================================================
 
