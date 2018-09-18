@@ -23,7 +23,7 @@ def total_count_normalization(matrix):
 
 #===============================================================================
 
-def percentile_normalization(matrix, p):
+def percentile_normalization(matrix, p, saving_memory=False):
     """
     Percentile normalization
     
@@ -33,6 +33,8 @@ def percentile_normalization(matrix, p):
         Matrix to normalize.
     p : float in range of [0,100]
         Percentile to compute, which must be between 0 and 100 inclusive.
+    saving_memory : bool
+        Parameter for activation of RAM saving mode. This may take longer.
         
     Returns
     -------
@@ -43,7 +45,7 @@ def percentile_normalization(matrix, p):
 
 #===============================================================================
 
-def quartile_normalization(matrix, q):
+def quartile_normalization(matrix, q, saving_memory=False):
     """
     Quartile normalization
     
@@ -56,6 +58,8 @@ def quartile_normalization(matrix, q):
         "lower" = 1,
         "median" = 2,
         "upper" = 3.
+    saving_memory : bool
+        Parameter for activation of RAM saving mode. This may take longer.
         
     Returns
     -------
@@ -68,7 +72,7 @@ def quartile_normalization(matrix, q):
 
 #===============================================================================
 
-def tmm_normalization(matrix, index_ref=None, trim_fold_change=0.3, trim_abs_expr=0.05):
+def tmm_normalization(matrix, index_ref=None, trim_fold_change=0.3, trim_abs_expr=0.05, saving_memory=False):
     """
     Trimmed mean of M-values normalization
     
@@ -82,6 +86,8 @@ def tmm_normalization(matrix, index_ref=None, trim_fold_change=0.3, trim_abs_exp
         Percent of trimmed for folder change.
     trim_abs_expr:
         Percent of trimmed for absolute expression.
+    saving_memory : bool
+        Parameter for activation of RAM saving mode. This may take longer.
         
     Returns
     -------
@@ -127,10 +133,10 @@ def tmm_normalization(matrix, index_ref=None, trim_fold_change=0.3, trim_abs_exp
         return np.sum(w_vec * m_vec) / w_sum
         
     # find index of reference column
-    f75 = percentile(matrix_np, 75)
+    f75 = percentile(matrix_np, 75, saving_memory)
     if index_ref is None:
         index_ref = np.argmin(abs(f75 - np.mean(f75)))
-    elif isinstance(matrix, pd.DataFrame) and ~isinstance(index_ref, int):
+    elif not isinstance(index_ref, int) and isinstance(matrix, pd.DataFrame):
         index_ref = np.where(matrix.columns.values == (index_ref))[0][0]
     
     # find matrix A and M described expression levels of genes
