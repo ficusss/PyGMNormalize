@@ -15,6 +15,9 @@ This package implements the following metods:
 - Percentile normalization;
 - Quartile normalization;
 - Trimmed mean of M-values normalization.
+  ### Input data
+  Each of metods takes matrix of gene expression `matrix` as first parameter and some method specific parameters, also some metods take optional parameter `saving_memory` (default `saving_memory=False`) for reduce the RAM usage in the calculations.
+  Parameter `matrix` has genes as rows, cells as columns.
 
 ## Demonstration
 Demonstration of the methods is available [here](https://github.com/ficusss/PyGMNormalize/blob/master/notebooks/demonstration.ipynb).
