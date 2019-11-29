@@ -149,3 +149,25 @@ def tmm_normalization(matrix, index_ref=None, trim_fold_change=0.3, trim_abs_exp
     return matrix / tmm_factor
 
 #===============================================================================
+
+
+# ===============================================================================
+
+def DESeq2_normalization(matrix, index_ref=None):
+    """
+    Trimmed mean of M-values normalization
+
+    Parameters
+    ----------
+    matrix : array_like
+        Matrix to normalize.
+
+    Returns
+    -------
+    array_like
+        Normalized matrix.
+    """
+
+    pass
+
+# ===============================================================================
